@@ -1,0 +1,15 @@
+{% include 'base.html' %}
+    {% include 'includes/header.html' %}    
+        {% block title %}
+      <h1>  Записи сообщества {{group.title}} </h1>
+        {% endblock %}
+        {% block content %}
+          <h2>{{group.title}}</h2>
+          <p>{{group.description|linebreaks }}</p>
+        {% for post in posts %}
+        {% include 'includes/card.html' %}
+            <p>{{ post.text|linebreaks }}</p>    
+          {% if not forloop.last %}<hr>{% endif %}
+        {% endfor %}
+        {% endblock %}
+    {% include 'includes/footer.html' %}      

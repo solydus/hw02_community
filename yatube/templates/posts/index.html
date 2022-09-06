@@ -1,0 +1,7 @@
+{%load static %}
+{% include 'base.html' %}
+{% include 'includes/header.html' %}
+    {% for post in posts %} 
+    {% include 'includes/card.html' %}      
+    {% endfor %}
+    {% include 'includes/footer.html' %}      
