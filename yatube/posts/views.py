@@ -3,6 +3,7 @@ from .models import Group, Post
 
 Post_v = 10
 
+
 def index(request):
     """Выводим на страницу первые 10 записей постов."""
     posts = Post.objects.select_related('author')[:Post_v]
@@ -20,4 +21,3 @@ def group_posts(request, slug):
     group = get_object_or_404(Group, slug=slug)
     posts = group.posts.all()[:Post_v]
     return render(request, "posts/post.html", {"group": group, "posts": posts})
-
