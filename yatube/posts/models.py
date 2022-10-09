@@ -28,7 +28,10 @@ class Post(models.Model):
                               related_name='posts')
     author = models.ForeignKey(User,
                                on_delete=models.CASCADE,
-                               related_name='post')
+                               related_name='postyy')
+    def get_absolute_url(self):
+        return f'/posts/{self.id}'
+    
 
     class Meta:
         verbose_name = "posts"
